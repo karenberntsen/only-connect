@@ -190,13 +190,13 @@ function love.keypressed(key)
 				filename = string.sub(filename,0,-2)
 			end
 		elseif calibrating == 1 then
-			if not (key==" " or key=="up" or key=="down" or key=="q" or key=="w" or key=="o" or key=="p" or key=="escape") then
+			if not (key=="space" or key=="up" or key=="down" or key=="q" or key=="w" or key=="o" or key=="p" or key=="escape") then
 				teamakey = key
 				calibrating = 2
 				print(teamaname.."'s key is "..teamakey)
 			end
 		elseif calibrating == 3 then
-			if not (key==" " or key=="up" or key=="down" or key=="q" or key=="w" or key=="o" or key=="p" or key=="escape") then
+			if not (key=="space" or key=="up" or key=="down" or key=="q" or key=="w" or key=="o" or key=="p" or key=="escape") then
 				teambkey = key
 				calibrating = 4
 				print(teambname.."'s key is "..teambkey)

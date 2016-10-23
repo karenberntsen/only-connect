@@ -115,7 +115,7 @@ function r4.keypressed(key)
 		end
 	end
 	-- continuing on!
-	if key==" " then
+	if key=="space" then
 		if moveOn() then return true end
 		if highlightingBg==0 and (not answered) then
 			timerR4 = 10

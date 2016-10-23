@@ -78,7 +78,7 @@ function show.keypressed(key)
 		if key==konamiii[position] and position<11 then
 			position = position + 1
 		elseif position==11 then
-			if key==" " then
+			if key=="space" then
 				print("KONAMICODE ACTIVATED")
 				roundIndex=whereAreTheRounds[5]
 				tie.load()
@@ -106,7 +106,7 @@ function show.keypressed(key)
 			end
 		else
 			position = 1
-			if key==" " then return true end
+			if key=="space" then return true end
 		end
 	elseif currentCode == infinity then
 		if key==infinity[position] and position < 9 then
@@ -122,7 +122,7 @@ function show.keypressed(key)
 			position = 1
 		else
 			position = 1
-			if key==" " then return true end
+			if key=="space" then return true end
 		end
 	elseif currentCode == glitch then
 		if key==glitch[position] and position < 6 then
@@ -138,7 +138,7 @@ function show.keypressed(key)
 			position = 1
 		else
 			position = 1
-			if key==" " then return true end
+			if key=="space" then return true end
 		end
 	end
 end

@@ -234,7 +234,7 @@ end
 function r3.keypressed(key)
 	if isItDone then
 		-- cycle through the groups, asking for the connections
-		if key==" " then
+		if key=="space" then
 			--print(toRes)
 			if revealedAnswer then
 				--print(resolveTheWall)
