@@ -6,12 +6,12 @@
 I'm going to try and explain everything I've done in this code, in an attempt to understand it better myself. Also, it means other coders can learn what (not) to do!
 ]]
 
-scale = love.window.getHeight()/650
-xscale = love.window.getWidth()/800 -- this is purely for large background elements, just to make sure they fit in the event of odd proportions
+scale = love.graphics.getHeight()/650
+xscale = love.graphics.getWidth()/800 -- this is purely for large background elements, just to make sure they fit in the event of odd proportions
 -- The scale is got from the height and done squarely, OK?
 -- This multiplies all the coordinates I measured at 800x650 by some scale factor defined by the dimensions in love.conf
-local originalX = love.window.getWidth()
-local originalY = love.window.getHeight()
+local originalX = love.graphics.getWidth()
+local originalY = love.graphics.getHeight()
 local shouldResize = true
 
 require "requirer" -- The requirer requires everything that needs to be required requiringly
@@ -34,14 +34,14 @@ currentTeam = 1 -- What team is currently answering?
 filename = "example" -- Where are the questions located?
 swapped = false -- Has the question been passed over yet (so if after this they still get it wrong, reveal the answer)
 local prevTeam = 2 -- This keeps tabs on what team should go and alerts the host accordingly.
-xshift = (love.window.getWidth()-(scale*800))/2 -- This centres the interface when fullscreened.
+xshift = (love.graphics.getWidth()-(scale*800))/2 -- This centres the interface when fullscreened.
 local calibrating = 0 -- 0: get filename, 1: ask for teama key, 2: got it!, 3: ask for teamb key, 4: got it!
 local switchTimer = 1
 
 function love.resize(w,h)
-	scale = love.window.getHeight()/650
-	xscale = love.window.getWidth()/800
-	xshift = (love.window.getWidth()-(scale*800))/2
+	scale = love.graphics.getHeight()/650
+	xscale = love.graphics.getWidth()/800
+	xshift = (love.graphics.getWidth()-(scale*800))/2
 	deffonts()
 	if w~=originalX or h~=originalY then shouldResize = true end
 end
@@ -209,10 +209,10 @@ function love.keypressed(key)
 			love.window.setFullscreen(false)
 			love.window.setMode(originalX,originalY,{resizable=true})
 			if f then
-				originalY = love.window.getHeight()
-				originalX = love.window.getWidth()
+				originalY = love.graphics.getHeight()
+				originalX = love.graphics.getWidth()
 			end
-			love.resize(love.window.getWidth(),love.window.getHeight())
+			love.resize(love.graphics.getWidth(),love.graphics.getHeight())
 			shouldResize = false
 		else
 			love.event.quit()
